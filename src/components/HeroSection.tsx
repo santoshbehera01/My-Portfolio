@@ -101,7 +101,7 @@ const HeroSection = () => {
                 <img
                   src={profilePhoto}
                   alt="Santosh Kumar Behera"
-                  className="w-full h-full object-cover object-top scale-110"
+                  className="w-full h-full object-cover object-top scale-100"
                 />
               </div>
             </div>
