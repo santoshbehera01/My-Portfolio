@@ -1,5 +1,5 @@
 import { ArrowRight, Github, Linkedin, Mail, Instagram } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
   return (
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 <img
                   src={profilePhoto}
                   alt="Santosh Kumar Behera"
-                  className="w-full h-full object-cover object-top scale-100"
+                  className="w-full h-full object-cover object-center scale-105"
                 />
               </div>
             </div>
