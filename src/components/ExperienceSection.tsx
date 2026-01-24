@@ -3,6 +3,13 @@ import { Trophy, Users, Lightbulb, Presentation } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
+      icon: <Trophy className="w-6 h-6" />,
+      title: "Hackathon Participation",
+      description:
+        "Participated in coding hackathons, developing solutions under time constraints and collaborating with peers.",
+      year: "2024-25",
+    },
+    {
       icon: <Presentation className="w-6 h-6" />,
       title: "BPUT Project Exhibition 2025",
       description:
