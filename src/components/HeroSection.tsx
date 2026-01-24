@@ -77,12 +77,6 @@ const HeroSection = () => {
               >
                 <Mail size={20} />
               </a>
-              <a
-                href="mailto:santosh@example.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail size={20} />
-              </a>
             </div>
           </div>
 
