@@ -5,17 +5,17 @@ const AboutSection = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Programming",
-      description: "Passionate about writing clean, efficient code",
+      description: "Interested in coding and improving programming skills",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Learning",
-      description: "Always exploring new technologies and concepts",
+      description: "Exploring new technologies and improving skills step by step",
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: "Collaboration",
-      description: "Team player with strong communication skills",
+      description: "Comfortable working in a team and sharing ideas",
     },
   ];
 
