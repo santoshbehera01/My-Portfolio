@@ -52,13 +52,10 @@ const ExperienceSection = () => {
                   {exp.icon}
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="mb-2">
                     <h3 className="font-semibold text-foreground">
                       {exp.title}
                     </h3>
-                    <span className="text-xs text-primary font-medium">
-                      {exp.year}
-                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {exp.description}
