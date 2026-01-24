@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Mail, Instagram } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
@@ -72,12 +72,10 @@ const HeroSection = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:santosh@example.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Instagram size={20} />
+                <Mail size={20} />
               </a>
               <a
                 href="mailto:santosh@example.com"
