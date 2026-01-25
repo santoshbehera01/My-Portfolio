@@ -1,6 +1,10 @@
 import { Code, Lightbulb, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const AboutSection = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.2 });
+
   const highlights = [
     {
       icon: <Code className="w-6 h-6" />,
@@ -24,17 +28,22 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div
+            ref={sectionRef as React.RefObject<HTMLDivElement>}
+            className={`space-y-8 scroll-fade-up ${sectionVisible ? "visible" : ""}`}
+          >
             <div>
-              <p className="section-subtitle">— About Me</p>
-              <h2 className="section-title">
+              <p className={`section-subtitle text-reveal ${sectionVisible ? "visible" : ""}`}>
+                — About Me
+              </p>
+              <h2 className={`section-title text-reveal ${sectionVisible ? "visible" : ""}`} style={{ transitionDelay: "100ms" }}>
                 Passionate about building
                 <br />
                 <span className="text-gradient">digital solutions</span>
               </h2>
             </div>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className={`space-y-4 text-muted-foreground leading-relaxed text-reveal ${sectionVisible ? "visible" : ""}`} style={{ transitionDelay: "200ms" }}>
               <p>
                 Hi there! I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>, 
                 a B.Tech CSE student with a strong interest in programming and 
@@ -48,7 +57,7 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className={`flex items-center gap-4 text-reveal ${sectionVisible ? "visible" : ""}`} style={{ transitionDelay: "300ms" }}>
               <a
                 href="#contact"
                 className="text-primary font-medium hover:underline inline-flex items-center gap-2"
@@ -59,15 +68,18 @@ const AboutSection = () => {
           </div>
 
           {/* Right Content - Highlights */}
-          <div className="space-y-6">
+          <div
+            ref={cardsRef as React.RefObject<HTMLDivElement>}
+            className="space-y-6"
+          >
             {highlights.map((item, index) => (
               <div
                 key={item.title}
-                className="glass-card p-6 hover-lift"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`glass-card p-6 hover-lift stagger-item ${cardsVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                  <div className="p-3 bg-primary/10 rounded-lg text-primary icon-hover">
                     {item.icon}
                   </div>
                   <div>
