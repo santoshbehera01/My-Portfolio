@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Gamepad2, ListTodo, Users } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, ListTodo, Users, Shield } from "lucide-react";
 
 const ProjectsSection = () => {
   const projects = [
@@ -26,6 +26,14 @@ const ProjectsSection = () => {
       tags: ["Collaboration", "Team Work", "Software Development"],
       color: "from-purple-500 to-primary",
     },
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Strongest Password",
+      description:
+        "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
+      tags: ["Python", "Security", "Password Generator"],
+      color: "from-green-500 to-primary",
+    },
   ];
 
   return (
@@ -33,7 +41,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p className="section-subtitle">— Portfolio</p>
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             Here are some projects I've worked on. Each one represents a step in
             my learning journey and showcases different skills.

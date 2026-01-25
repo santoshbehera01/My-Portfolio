@@ -11,16 +11,14 @@ const SkillsSection = () => {
     "Communication",
     "Critical Thinking",
     "Time Management",
-    "Adaptability",
   ];
 
   const learningFocus = [
     "Software Development",
-    "Data Structures",
-    "Algorithms",
     "Web Development",
-    "Database Management",
-    "Version Control (Git)",
+    "Data Structures & Algorithms",
+    "MySQL (Database Management)",
+    "Version Control using Git",
   ];
 
   return (
