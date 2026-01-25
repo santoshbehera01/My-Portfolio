@@ -1,6 +1,10 @@
 import { Trophy, Users, Lightbulb, Presentation } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ExperienceSection = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.15 });
+
   const experiences = [
     {
       icon: <Trophy className="w-6 h-6" />,
@@ -35,20 +39,26 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 md:py-32">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 scroll-fade-up ${headerVisible ? "visible" : ""}`}
+        >
           <p className="section-subtitle">— Experience & Activities</p>
           <h2 className="section-title">My Journey So Far</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div
+          ref={cardsRef as React.RefObject<HTMLDivElement>}
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        >
           {experiences.map((exp, index) => (
             <div
               key={exp.title}
-              className="glass-card p-6 hover-lift group"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`glass-card p-6 hover-lift group stagger-item ${cardsVisible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors icon-hover">
                   {exp.icon}
                 </div>
                 <div className="flex-1">

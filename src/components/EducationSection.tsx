@@ -1,10 +1,17 @@
 import { GraduationCap, Calendar } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const EducationSection = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: cardRef, isVisible: cardVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section id="education" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 scroll-fade-up ${headerVisible ? "visible" : ""}`}
+        >
           <p className="section-subtitle">— Education</p>
           <h2 className="section-title">Academic Background</h2>
         </div>
@@ -12,16 +19,19 @@ const EducationSection = () => {
         <div className="max-w-3xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+            <div className={`absolute left-8 top-0 bottom-0 w-0.5 bg-border transition-all duration-700 ${cardVisible ? "opacity-100" : "opacity-0"}`} />
 
             {/* Education Card */}
-            <div className="relative pl-20">
+            <div
+              ref={cardRef as React.RefObject<HTMLDivElement>}
+              className={`relative pl-20 scroll-slide-right ${cardVisible ? "visible" : ""}`}
+            >
               {/* Timeline dot */}
-              <div className="absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-background" />
+              <div className={`absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-background transition-all duration-500 ${cardVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: "300ms" }} />
 
               <div className="glass-card p-8 hover-lift">
                 <div className="flex items-start gap-4">
-                  <div className="p-4 bg-primary/10 rounded-xl text-primary">
+                  <div className="p-4 bg-primary/10 rounded-xl text-primary icon-hover">
                     <GraduationCap className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
