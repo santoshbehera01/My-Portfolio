@@ -6,7 +6,7 @@ const ExperienceSection = () => {
       icon: <Trophy className="w-6 h-6" />,
       title: "Hackathon Participation",
       description:
-        "Participated in coding hackathons, developing solutions under time constraints and collaborating with peers.",
+        "Participated in hackathons to learn new concepts while improving coding skills and teamwork.",
       year: "2024-25",
     },
     {
@@ -20,14 +20,14 @@ const ExperienceSection = () => {
       icon: <Users className="w-6 h-6" />,
       title: "Team Project Collaboration",
       description:
-        "Collaborated on academic projects, developing teamwork and communication skills through hands-on experience.",
+        "Worked on team projects to learn collaboration and communication skills.",
       year: "2024-25",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Continuous Learning",
       description:
-        "Actively learning new programming languages, frameworks, and best practices in software development.",
+        "Actively learning and improving skills through practice and self-study.",
       year: "Ongoing",
     },
   ];
