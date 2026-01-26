@@ -1,103 +1,166 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
+  const imageVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
   return (
     <section
       id="home"
       className="min-h-screen flex items-center pt-20 relative overflow-hidden"
     >
       {/* Background gradient effect */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" 
+      />
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" 
+      />
 
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-up">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={containerVariants}
+            className="space-y-8"
+          >
             <div className="space-y-4">
-              <p className="section-subtitle">— Introduction</p>
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <motion.p variants={itemVariants} className="section-subtitle">— Introduction</motion.p>
+              <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold leading-tight">
                 Santosh
                 <br />
                 <span className="text-gradient">Kumar</span>
                 <br />
                 Behera<span className="text-primary">.</span>
-              </h1>
+              </motion.h1>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-md">
+            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">
               B.Tech CSE Student | Aspiring Software Engineer | Programming
               Enthusiast
-            </p>
+            </motion.p>
 
-            <p className="text-muted-foreground max-w-lg leading-relaxed">
+            <motion.p variants={itemVariants} className="text-muted-foreground max-w-lg leading-relaxed">
               Passionate about software development and learning new
               technologies. Building the future, one line of code at a time.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <a
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+              <motion.a
                 href="#projects"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all hover-lift"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all"
+                whileHover={{ y: -3, boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)" }}
+                whileTap={{ scale: 0.98 }}
               >
                 View Projects
                 <ArrowRight size={18} />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#contact"
-                className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all hover-lift"
+                className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all"
+                whileHover={{ y: -3, boxShadow: "0 10px 20px -10px rgba(0,0,0,0.2)" }}
+                whileTap={{ scale: 0.98 }}
               >
                 Contact Me
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 pt-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="mailto:santosh@example.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail size={20} />
-              </a>
-            </div>
-          </div>
+            <motion.div variants={itemVariants} className="flex items-center gap-4 pt-4">
+              {[
+                { href: "https://github.com", icon: <Github size={20} /> },
+                { href: "https://linkedin.com", icon: <Linkedin size={20} /> },
+                { href: "mailto:santosh@example.com", icon: <Mail size={20} /> },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </motion.div>
+          </motion.div>
 
           {/* Right Content - Profile Image */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-up delay-200">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={imageVariants}
+            className="relative flex justify-center lg:justify-end"
+          >
             <div className="relative">
               {/* Decorative elements */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" />
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full" />
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" 
+              />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" 
+              />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full" 
+              />
 
               {/* Profile Image */}
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-secondary amber-glow">
-              <img
+                <img
                   src={profilePhoto}
                   alt="Santosh Kumar Behera"
                   className="w-full h-full object-cover object-[center_60%] scale-90"
-              />
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

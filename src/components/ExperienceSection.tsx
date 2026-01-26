@@ -1,9 +1,32 @@
 import { Trophy, Users, Lightbulb, Presentation } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion, type Variants } from "framer-motion";
 
 const ExperienceSection = () => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.15 });
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const headerVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   const experiences = [
     {
@@ -39,28 +62,41 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 md:py-32">
       <div className="container mx-auto px-6">
-        <div
-          ref={headerRef as React.RefObject<HTMLDivElement>}
-          className={`text-center mb-16 scroll-fade-up ${headerVisible ? "visible" : ""}`}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
         >
-          <p className="section-subtitle">— Experience & Activities</p>
-          <h2 className="section-title">My Journey So Far</h2>
-        </div>
+          <motion.p variants={headerVariants} className="section-subtitle">— Experience & Activities</motion.p>
+          <motion.h2 variants={headerVariants} className="section-title">My Journey So Far</motion.h2>
+        </motion.div>
 
-        <div
-          ref={cardsRef as React.RefObject<HTMLDivElement>}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.15 }}
+          variants={containerVariants}
           className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={exp.title}
-              className={`glass-card p-6 hover-lift group stagger-item ${cardsVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              variants={cardVariants}
+              custom={index}
+              className="glass-card p-6 group"
+              whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors icon-hover">
+                <motion.div 
+                  className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
                   {exp.icon}
-                </div>
+                </motion.div>
                 <div className="flex-1">
                   <div className="mb-2">
                     <h3 className="font-semibold text-foreground">
@@ -72,9 +108,9 @@ const ExperienceSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
