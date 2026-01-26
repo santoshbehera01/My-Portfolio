@@ -1,39 +1,88 @@
 import { GraduationCap, Calendar } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion, type Variants } from "framer-motion";
 
 const EducationSection = () => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  const { ref: cardRef, isVisible: cardVisible } = useScrollAnimation({ threshold: 0.2 });
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const headerVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   return (
     <section id="education" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div
-          ref={headerRef as React.RefObject<HTMLDivElement>}
-          className={`text-center mb-16 scroll-fade-up ${headerVisible ? "visible" : ""}`}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
         >
-          <p className="section-subtitle">— Education</p>
-          <h2 className="section-title">Academic Background</h2>
-        </div>
+          <motion.p variants={headerVariants} className="section-subtitle">— Education</motion.p>
+          <motion.h2 variants={headerVariants} className="section-title">Academic Background</motion.h2>
+        </motion.div>
 
         <div className="max-w-3xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className={`absolute left-8 top-0 bottom-0 w-0.5 bg-border transition-all duration-700 ${cardVisible ? "opacity-100" : "opacity-0"}`} />
+            <motion.div 
+              initial={{ opacity: 0, scaleY: 0 }}
+              whileInView={{ opacity: 1, scaleY: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
+              className="absolute left-8 top-0 bottom-0 w-0.5 bg-border origin-top"
+            />
 
             {/* Education Card */}
-            <div
-              ref={cardRef as React.RefObject<HTMLDivElement>}
-              className={`relative pl-20 scroll-slide-right ${cardVisible ? "visible" : ""}`}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={cardVariants}
+              className="relative pl-20"
             >
               {/* Timeline dot */}
-              <div className={`absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-background transition-all duration-500 ${cardVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: "300ms" }} />
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-background"
+              />
 
-              <div className="glass-card p-8 hover-lift">
+              <motion.div 
+                className="glass-card p-8"
+                whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <div className="flex items-start gap-4">
-                  <div className="p-4 bg-primary/10 rounded-xl text-primary icon-hover">
+                  <motion.div 
+                    className="p-4 bg-primary/10 rounded-xl text-primary"
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
                     <GraduationCap className="w-8 h-8" />
-                  </div>
+                  </motion.div>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
                       <h3 className="text-xl font-bold text-foreground">
@@ -55,8 +104,8 @@ const EducationSection = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

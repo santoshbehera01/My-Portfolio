@@ -1,9 +1,33 @@
 import { ExternalLink, Github, Gamepad2, ListTodo, Users, Shield } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion, type Variants } from "framer-motion";
 
 const ProjectsSection = () => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const headerVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   const projects = [
     {
@@ -43,35 +67,48 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 md:py-32">
       <div className="container mx-auto px-6">
-        <div
-          ref={headerRef as React.RefObject<HTMLDivElement>}
-          className={`text-center mb-16 scroll-fade-up ${headerVisible ? "visible" : ""}`}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={containerVariants}
+          className="text-center mb-16"
         >
-          <p className="section-subtitle">— Portfolio</p>
-          <h2 className="section-title">My Projects</h2>
-          <p className={`text-muted-foreground max-w-2xl mx-auto mt-4 text-reveal ${headerVisible ? "visible" : ""}`} style={{ transitionDelay: "150ms" }}>
+          <motion.p variants={headerVariants} className="section-subtitle">— Portfolio</motion.p>
+          <motion.h2 variants={headerVariants} className="section-title">My Projects</motion.h2>
+          <motion.p variants={headerVariants} className="text-muted-foreground max-w-2xl mx-auto mt-4">
             Here are some projects I've worked on. Each one represents a step in
             my learning journey and showcases different skills.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div
-          ref={cardsRef as React.RefObject<HTMLDivElement>}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          variants={containerVariants}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
         >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.title}
-              className={`group glass-card overflow-hidden hover-lift stagger-item ${cardsVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              variants={cardVariants}
+              custom={index}
+              className="group glass-card overflow-hidden"
+              whileHover={{ y: -8, boxShadow: "0 25px 50px -15px rgba(0,0,0,0.2)" }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {/* Gradient Header */}
               <div
                 className={`h-32 bg-gradient-to-r ${project.color} flex items-center justify-center`}
               >
-                <div className="p-4 bg-background/20 backdrop-blur-sm rounded-xl text-foreground icon-hover">
+                <motion.div 
+                  className="p-4 bg-background/20 backdrop-blur-sm rounded-xl text-foreground"
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
                   {project.icon}
-                </div>
+                </motion.div>
               </div>
 
               {/* Content */}
@@ -97,23 +134,27 @@ const ProjectsSection = () => {
 
                 {/* Links */}
                 <div className="flex items-center gap-4 pt-2">
-                  <a
+                  <motion.a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors icon-hover"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
                     <Github size={18} />
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors icon-hover"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
                     <ExternalLink size={18} />
-                  </a>
+                  </motion.a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
