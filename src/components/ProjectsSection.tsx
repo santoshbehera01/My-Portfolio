@@ -37,6 +37,7 @@ const ProjectsSection = () => {
         "A classic two-player 3×3 game with real-time win and draw detection. Players alternate between X and O in an interactive console-based or GUI experience.",
       tags: ["Java", "Game Logic", "Interactive"],
       color: "from-primary to-amber-500",
+      github: "https://github.com/santoshbehera01/Tictactoe",
     },
     {
       icon: <ListTodo className="w-8 h-8" />,
@@ -45,6 +46,7 @@ const ProjectsSection = () => {
         "An intelligent task management application that helps users manage daily tasks and deadlines with customizable, real-time alerts.",
       tags: ["Python", "Task Management", "Alerts"],
       color: "from-blue-500 to-primary",
+      github: "#",
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -53,6 +55,7 @@ const ProjectsSection = () => {
         "A collaborative project developed with a team, highlighting teamwork, coordination, and practical implementation of software engineering principles.",
       tags: ["Collaboration", "Team Work", "Software Development"],
       color: "from-purple-500 to-primary",
+      github: "#",
     },
     {
       icon: <Shield className="w-8 h-8" />,
@@ -61,6 +64,7 @@ const ProjectsSection = () => {
         "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
       tags: ["Python", "Security", "Password Generator"],
       color: "from-green-500 to-primary",
+      github: "https://github.com/santoshbehera01/First-project",
     },
   ];
 
@@ -135,7 +139,9 @@ const ProjectsSection = () => {
                 {/* Links */}
                 <div className="flex items-center gap-4 pt-2">
                   <motion.a
-                    href="#"
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                     whileHover={{ scale: 1.2 }}
                     transition={{ type: "spring", stiffness: 400 }}
