@@ -62,8 +62,8 @@ const ContactSection = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "santosh@example.com",
-      href: "mailto:santosh@example.com",
+      value: "santoshkumar845788@gmail.com",
+      href: "mailto:santoshkumar845788@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
@@ -80,9 +80,10 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, href: "https://github.com", label: "GitHub" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com", label: "Instagram" },
+    { icon: <Mail className="w-5 h-5" />, href: "mailto:santoshkumar845788@gmail.com", label: "Email" },
+    { icon: <Github className="w-5 h-5" />, href: "https://github.com/santoshbehera01", label: "GitHub" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/santosh-kumar-behera-/", label: "LinkedIn" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/iam__santosh__/", label: "Instagram" },
   ];
 
   return (
