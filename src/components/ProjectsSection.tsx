@@ -44,7 +44,7 @@ const ProjectsSection = () => {
       title: "Task Reminder",
       description:
         "An intelligent task management application that helps users manage daily tasks and deadlines with customizable, real-time alerts.",
-      tags: ["Python", "Task Management", "Alerts"],
+      tags: ["HTML", "Task Management", "Alerts"],
       color: "from-blue-500 to-primary",
       github: "#",
     },
