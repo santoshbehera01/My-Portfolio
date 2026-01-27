@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 const HeroSection = () => {
@@ -109,22 +109,35 @@ const HeroSection = () => {
             {/* Social Links */}
             <motion.div variants={itemVariants} className="flex items-center gap-4 pt-4">
               {[{
-              href: "https://github.com",
-              icon: <Github size={20} />
+              href: "mailto:santoshkumar845788@gmail.com",
+              icon: <Mail size={20} />,
+              label: "Email"
             }, {
-              href: "https://linkedin.com",
-              icon: <Linkedin size={20} />
+              href: "https://github.com/santoshbehera01",
+              icon: <Github size={20} />,
+              label: "GitHub"
             }, {
-              href: "mailto:santosh@example.com",
-              icon: <Mail size={20} />
-            }].map((social, index) => <motion.a key={index} href={social.href} target={social.href.startsWith("mailto") ? undefined : "_blank"} rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"} className="text-muted-foreground hover:text-primary transition-colors" whileHover={{
-              scale: 1.2
-            }} transition={{
-              type: "spring",
-              stiffness: 400
-            }}>
+              href: "https://www.linkedin.com/in/santosh-kumar-behera-/",
+              icon: <Linkedin size={20} />,
+              label: "LinkedIn"
+            }, {
+              href: "https://www.instagram.com/iam__santosh__/",
+              icon: <Instagram size={20} />,
+              label: "Instagram"
+            }].map((social, index) => (
+                <motion.a 
+                  key={index} 
+                  href={social.href} 
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"} 
+                  rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"} 
+                  className="text-muted-foreground hover:text-primary transition-all duration-300"
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
                   {social.icon}
-                </motion.a>)}
+                </motion.a>
+              ))}
             </motion.div>
           </motion.div>
 
