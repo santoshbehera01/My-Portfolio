@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Mail, Instagram } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 const HeroSection = () => {
@@ -120,10 +120,6 @@ const HeroSection = () => {
               href: "https://www.linkedin.com/in/santosh-kumar-behera-/",
               icon: <Linkedin size={20} />,
               label: "LinkedIn"
-            }, {
-              href: "https://www.instagram.com/iam__santosh__/",
-              icon: <Instagram size={20} />,
-              label: "Instagram"
             }].map((social, index) => (
                 <motion.a 
                   key={index} 
