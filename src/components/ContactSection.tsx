@@ -86,8 +86,8 @@ const ContactSection = () => {
   }, {
     icon: <Phone className="w-5 h-5" />,
     label: "Phone",
-    value: "+91 XXXXX XXXXX",
-    href: "tel:+91XXXXXXXXXX"
+    value: "+91 77353 44162",
+    href: "tel:+917735344162"
   }, {
     icon: <MapPin className="w-5 h-5" />,
     label: "Location",
@@ -143,7 +143,7 @@ const ContactSection = () => {
                   </motion.div>
                   <div>
                     <p className="text-sm text-muted-foreground">{item.label}</p>
-                    {item.href ? <a href={item.href} className="text-foreground hover:text-primary transition-colors">+91 77353 44162{item.value}
+                    {item.href ? <a href={item.href} className="text-foreground hover:text-primary transition-colors">{item.value}
                       </a> : <p className="text-foreground">{item.value}</p>}
                   </div>
                 </motion.div>)}
