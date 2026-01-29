@@ -62,7 +62,7 @@ const ProjectsSection = () => {
       title: "Strongest Password",
       description:
         "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
-      tags: ["Python", "Security", "Password Generator"],
+      tags: ["HTML", "Security", "Password Generator"],
       color: "from-green-500 to-primary",
       github: "https://github.com/santoshbehera01/First-project",
     },
