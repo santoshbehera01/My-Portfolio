@@ -143,35 +143,42 @@ const HeroSection = () => {
           amount: 0.3
         }} variants={imageVariants} className="relative flex justify-center lg:justify-end">
             <div className="relative">
+              {/* Background blur/gradient effect */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                transition={{ duration: 1.2, delay: 0.3 }} 
+                className="absolute -inset-8 bg-gradient-to-br from-primary/30 via-primary/15 to-transparent rounded-full blur-3xl" 
+              />
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                transition={{ duration: 1, delay: 0.5 }} 
+                className="absolute -inset-4 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-2xl" 
+              />
+              
               {/* Decorative elements */}
-              <motion.div initial={{
-              opacity: 0
-            }} animate={{
-              opacity: 1
-            }} transition={{
-              duration: 1,
-              delay: 0.5
-            }} className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
-              <motion.div initial={{
-              scale: 0
-            }} animate={{
-              scale: 1
-            }} transition={{
-              duration: 0.6,
-              delay: 0.7
-            }} className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" />
-              <motion.div initial={{
-              scale: 0
-            }} animate={{
-              scale: 1
-            }} transition={{
-              duration: 0.6,
-              delay: 0.9
-            }} className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full" />
+              <motion.div 
+                initial={{ scale: 0 }} 
+                animate={{ scale: 1 }} 
+                transition={{ duration: 0.6, delay: 0.7 }} 
+                className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" 
+              />
+              <motion.div 
+                initial={{ scale: 0 }} 
+                animate={{ scale: 1 }} 
+                transition={{ duration: 0.6, delay: 0.9 }} 
+                className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full" 
+              />
 
               {/* Profile Image */}
-              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-secondary amber-glow">
-                <img src={profilePhoto} alt="Santosh Kumar Behera" className="w-full h-full object-cover object-[center_60%] scale-90" />
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-[3px] border-primary/40 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.5)]">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-transparent to-background/20" />
+                <img 
+                  src={profilePhoto} 
+                  alt="Santosh Kumar Behera" 
+                  className="w-full h-full object-cover object-[center_35%] scale-105" 
+                />
               </div>
             </div>
           </motion.div>
