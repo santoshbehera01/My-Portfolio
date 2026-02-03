@@ -94,8 +94,8 @@ const ContactSection = () => {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          your_name: formData.name,
+          your_email: formData.email,
           message: formData.message,
         },
         EMAILJS_PUBLIC_KEY
