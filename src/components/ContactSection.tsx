@@ -4,10 +4,9 @@ import { motion, type Variants } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 
-// TODO: Replace these with your EmailJS credentials from https://emailjs.com
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_wgmggbv";
+const EMAILJS_TEMPLATE_ID = "template_x2epv96";
+const EMAILJS_PUBLIC_KEY = "6x0vB_CmGErJWTDTj";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -86,15 +85,7 @@ const ContactSection = () => {
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID") {
-      toast({
-        title: "Configuration Required",
-        description: "Please configure your EmailJS credentials in ContactSection.tsx",
-        variant: "destructive",
-      });
-      return;
-    }
+    setIsLoading(true);
 
     setIsLoading(true);
 
