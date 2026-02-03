@@ -1,7 +1,17 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
+
+// TODO: Replace these with your EmailJS credentials from https://emailjs.com
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -74,9 +84,48 @@ const ContactSection = () => {
       }
     }
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    if (EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID") {
+      toast({
+        title: "Configuration Required",
+        description: "Please configure your EmailJS credentials in ContactSection.tsx",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
   const contactInfo = [{
     icon: <Mail className="w-5 h-5" />,
@@ -200,14 +249,30 @@ const ContactSection = () => {
             })} rows={4} className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground resize-none transition-all" placeholder="Your message here..." required />
             </motion.div>
 
-            <motion.button type="submit" variants={rightVariants} className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all" whileHover={{
-            y: -3,
-            boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)"
-          }} whileTap={{
-            scale: 0.98
-          }}>
-              Send Message
-              <Send size={18} />
+            <motion.button 
+              type="submit" 
+              disabled={isLoading}
+              variants={rightVariants} 
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed" 
+              whileHover={isLoading ? {} : {
+                y: -3,
+                boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)"
+              }} 
+              whileTap={isLoading ? {} : {
+                scale: 0.98
+              }}
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <Send size={18} />
+                </>
+              )}
             </motion.button>
           </motion.form>
         </div>
