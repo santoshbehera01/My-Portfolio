@@ -93,11 +93,10 @@ const SkillsSection = () => {
             <div className="space-y-5">
               {programmingSkills.map((skill, index) => (
                 <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
+                  <div className="mb-2">
                     <span className="text-foreground font-medium">
                       {skill.name}
                     </span>
-                    <span className="text-primary text-sm">{skill.level}%</span>
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <motion.div
