@@ -148,36 +148,36 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }} 
                 animate={{ opacity: 1, scale: 1 }} 
                 transition={{ duration: 1.2, delay: 0.3 }} 
-                className="absolute -inset-8 bg-gradient-to-br from-primary/30 via-primary/15 to-transparent rounded-full blur-3xl" 
+                className="absolute -inset-8 bg-gradient-to-br from-primary/30 via-primary/15 to-transparent rounded-[2.5rem] blur-3xl" 
               />
               <motion.div 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: 1, delay: 0.5 }} 
-                className="absolute -inset-4 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-2xl" 
+                className="absolute -inset-4 bg-gradient-radial from-primary/20 to-transparent rounded-[2rem] blur-2xl" 
               />
               
-              {/* Decorative elements */}
+              {/* Decorative elements - rounded rectangles */}
               <motion.div 
                 initial={{ scale: 0 }} 
                 animate={{ scale: 1 }} 
                 transition={{ duration: 0.6, delay: 0.7 }} 
-                className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" 
+                className="absolute -top-4 -right-4 w-20 h-20 border-2 border-primary/30 rounded-2xl rotate-12" 
               />
               <motion.div 
                 initial={{ scale: 0 }} 
                 animate={{ scale: 1 }} 
                 transition={{ duration: 0.6, delay: 0.9 }} 
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full" 
+                className="absolute -bottom-3 -left-3 w-14 h-14 bg-primary/20 rounded-xl -rotate-12" 
               />
 
-              {/* Profile Image */}
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-[3px] border-primary/40 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.5)]">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-transparent to-background/20" />
+              {/* Profile Image - Modern Rounded Rectangle */}
+              <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden border-[3px] border-primary/40 shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.4),0_0_60px_-20px_hsl(var(--primary)/0.3)]">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-transparent via-transparent to-background/20" />
                 <img 
                   src={profilePhoto} 
                   alt="Santosh Kumar Behera" 
-                  className="w-full h-full object-cover object-[center_18%] scale-[1.6]" 
+                  className="w-full h-full object-cover object-[center_15%] scale-[1.3]" 
                 />
               </div>
             </div>
