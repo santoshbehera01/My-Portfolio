@@ -142,44 +142,13 @@ const HeroSection = () => {
           once: false,
           amount: 0.3
         }} variants={imageVariants} className="relative flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Background blur/gradient effect */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                transition={{ duration: 1.2, delay: 0.3 }} 
-                className="absolute -inset-8 bg-gradient-to-br from-primary/30 via-primary/15 to-transparent rounded-[2.5rem] blur-3xl" 
+            {/* Profile Image - Clean Rounded Rectangle */}
+            <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden">
+              <img 
+                src={profilePhoto} 
+                alt="Santosh Kumar Behera" 
+                className="w-full h-full object-cover object-[center_35%]" 
               />
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                transition={{ duration: 1, delay: 0.5 }} 
-                className="absolute -inset-4 bg-gradient-radial from-primary/20 to-transparent rounded-[2rem] blur-2xl" 
-              />
-              
-              {/* Decorative elements - rounded rectangles */}
-              <motion.div 
-                initial={{ scale: 0 }} 
-                animate={{ scale: 1 }} 
-                transition={{ duration: 0.6, delay: 0.7 }} 
-                className="absolute -top-4 -right-4 w-20 h-20 border-2 border-primary/30 rounded-2xl rotate-12" 
-              />
-              <motion.div 
-                initial={{ scale: 0 }} 
-                animate={{ scale: 1 }} 
-                transition={{ duration: 0.6, delay: 0.9 }} 
-                className="absolute -bottom-3 -left-3 w-14 h-14 bg-primary/20 rounded-xl -rotate-12" 
-              />
-
-              {/* Profile Image - Modern Rounded Rectangle */}
-              <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden border-[3px] border-primary/40 shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.4),0_0_60px_-20px_hsl(var(--primary)/0.3)]">
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-transparent via-transparent to-background/20" />
-                <img 
-                  src={profilePhoto} 
-                  alt="Santosh Kumar Behera" 
-                  className="w-full h-full object-cover object-[center_40%] scale-[1.1]" 
-                />
-              </div>
             </div>
           </motion.div>
         </div>
