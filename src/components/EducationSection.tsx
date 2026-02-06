@@ -10,7 +10,7 @@ const educationData = [
     badge: "Current",
   },
   {
-    title: "Intermediate in Science (PCMIT)",
+    title: "Intermediate in Science (P  C  M  IT)",
     institution: "Salandi Residential Higher Secondary School",
     location: "Bhadrak, Odisha",
     duration: "July 2022 – March 2024",
