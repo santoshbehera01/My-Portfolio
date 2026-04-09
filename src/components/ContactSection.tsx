@@ -121,8 +121,8 @@ const ContactSection = () => {
   const contactInfo = [{
     icon: <Mail className="w-5 h-5" />,
     label: "Email",
-    value: "santoshkumar845788@gmail.com",
-    href: "mailto:santoshkumar845788@gmail.com"
+    value: "santoshkumarbehera049@gmail.com",
+    href: "mailto:santoshkumarbehera049@gmail.com"
   }, {
     icon: <Phone className="w-5 h-5" />,
     label: "Phone",
@@ -136,7 +136,7 @@ const ContactSection = () => {
   }];
   const socialLinks = [{
     icon: <Mail className="w-5 h-5" />,
-    href: "mailto:santoshkumar845788@gmail.com",
+    href: "mailto:santoshkumarbehera049@gmail.com",
     label: "Email"
   }, {
     icon: <Github className="w-5 h-5" />,

@@ -109,7 +109,7 @@ const HeroSection = () => {
             {/* Social Links */}
             <motion.div variants={itemVariants} className="flex items-center gap-4 pt-4">
               {[{
-              href: "mailto:santoshkumar845788@gmail.com",
+              href: "mailto:santoshkumarbehera049@gmail.com",
               icon: <Mail size={20} />,
               label: "Email"
             }, {
