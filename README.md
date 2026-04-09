@@ -31,7 +31,7 @@ Driven by curiosity and a desire to grow in the field of technology.
 
 ## 📬 Contact
 
-* 📧 Email: [santoshkumarbehera049@gmail.com]
+* 📧 Email: santoshkumarbehera049@gmail.com
 * 💼 LinkedIn: https://www.linkedin.com/in/santosh-kumar-behera-/
 * 💻 GitHub: https://github.com/santoshbehera01
 
