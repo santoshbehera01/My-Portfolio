@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Gamepad2, ListTodo, Users, Shield } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, Users, Shield, Bot } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 const ProjectsSection = () => {
@@ -31,6 +31,15 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      icon: <Bot className="w-8 h-8" />,
+      title: "AI Resume Analyzer",
+      description:
+        "An intelligent tool that analyzes resumes against job descriptions, providing ATS optimization scores and actionable feedback.",
+      tags: ["AI", "Resume Analysis", "NLP", "Web App"],
+      color: "from-blue-500 to-primary",
+      github: "https://github.com/santoshbehera01/AI-Resume-Analyzer",
+    },
+    {
       icon: <Gamepad2 className="w-8 h-8" />,
       title: "Tic Tac Toe",
       description:
@@ -40,13 +49,13 @@ const ProjectsSection = () => {
       github: "https://github.com/santoshbehera01/Tictactoe",
     },
     {
-      icon: <ListTodo className="w-8 h-8" />,
-      title: "Task Reminder",
+      icon: <Shield className="w-8 h-8" />,
+      title: "Strongest Password",
       description:
-        "An intelligent task management application that helps users manage daily tasks and deadlines with customizable, real-time alerts.",
-      tags: ["HTML", "Task Management", "Alerts"],
-      color: "from-blue-500 to-primary",
-      github: "#",
+        "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
+      tags: ["HTML", "Security", "Password Generator"],
+      color: "from-green-500 to-primary",
+      github: "https://github.com/santoshbehera01/First-project",
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -56,15 +65,6 @@ const ProjectsSection = () => {
       tags: ["Collaboration", "Team Work", "Software Development"],
       color: "from-purple-500 to-primary",
       github: "#",
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Strongest Password",
-      description:
-        "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
-      tags: ["HTML", "Security", "Password Generator"],
-      color: "from-green-500 to-primary",
-      github: "https://github.com/santoshbehera01/First-project",
     },
   ];
 
