@@ -41,7 +41,7 @@ const ProjectsSection = () => {
     },
     {
       icon: <Gamepad2 className="w-8 h-8" />,
-      title: "Tic Tac Toe",
+      title: "TicTacToe",
       description:
         "A classic two-player 3×3 game with real-time win and draw detection. Players alternate between X and O in an interactive console-based or GUI experience.",
       tags: ["Java", "Game Logic", "Interactive"],
