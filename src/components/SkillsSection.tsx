@@ -44,19 +44,16 @@ const SkillsSection = () => {
   ];
 
   const coreSkills = [
-    "Problem Solving",
     "Teamwork",
-    "Communication",
-    "Critical Thinking",
     "Time Management",
+    "Problem Solving",
   ];
 
   const learningFocus = [
     "Software Development",
     "Web Development",
     "Data Structures & Algorithms",
-    "MySQL (Database Management)",
-    "Version Control using Git",
+    "MySQL",
   ];
 
   return (
