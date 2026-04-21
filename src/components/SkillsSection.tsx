@@ -38,9 +38,9 @@ const SkillsSection = () => {
   };
 
   const programmingSkills = [
-    { name: "C", level: 75 },
-    { name: "Java", level: 70 },
-    { name: "Python", level: 65 },
+    { name: "C", level: 70 },
+    { name: "Java", level: 75 },
+    { name: "Python", level: 80 },
   ];
 
   const coreSkills = [
