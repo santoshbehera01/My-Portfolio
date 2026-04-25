@@ -66,7 +66,7 @@ const HeroSection = () => {
           <motion.div initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
-        }} variants={containerVariants} className="space-y-8">
+        }} variants={containerVariants} className="space-y-8 text-center sm:text-left">
             <div className="space-y-4">
               <motion.p variants={itemVariants} className="section-subtitle">— Introduction</motion.p>
               <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold leading-tight">
@@ -86,28 +86,45 @@ const HeroSection = () => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <motion.a href="#projects" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all" whileHover={{
-              y: -3,
-              boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)"
-            }} whileTap={{
-              scale: 0.98
-            }}>
-                View Projects
-                <ArrowRight size={18} />
+            <motion.div variants={itemVariants} className="flex flex-col gap-6 items-center">
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-950 via-slate-900 to-violet-700 text-white px-6 py-3 rounded-2xl font-medium border border-white/10 shadow-[0_18px_50px_-35px_rgba(124,58,237,0.7)] hover:from-slate-900 hover:to-violet-600 transition-all"
+                whileHover={{
+                  y: -3,
+                  boxShadow: "0 14px 32px -16px rgba(124,58,237,0.45)"
+                }}
+                whileTap={{
+                  scale: 0.98
+                }}
+              >
+                View Resume 📄
               </motion.a>
-              <motion.a href="#contact" className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all" whileHover={{
-              y: -3,
-              boxShadow: "0 10px 20px -10px rgba(0,0,0,0.2)"
-            }} whileTap={{
-              scale: 0.98
-            }}>
-                Contact Me
-              </motion.a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.a href="#projects" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all" whileHover={{
+                y: -3,
+                boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)"
+              }} whileTap={{
+                scale: 0.98
+              }}>
+                  View Projects
+                  <ArrowRight size={18} />
+                </motion.a>
+                <motion.a href="#contact" className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all" whileHover={{
+                y: -3,
+                boxShadow: "0 10px 20px -10px rgba(0,0,0,0.2)"
+              }} whileTap={{
+                scale: 0.98
+              }}>
+                  Contact Me
+                </motion.a>
+              </div>
             </motion.div>
 
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="flex items-center gap-4 pt-4">
+            <motion.div variants={itemVariants} className="flex items-center justify-center gap-6 pt-6">
               {[{
               href: "mailto:santoshkumarbehera049@gmail.com",
               icon: <Mail size={20} />,
@@ -126,7 +143,7 @@ const HeroSection = () => {
                   href={social.href} 
                   target={social.href.startsWith("mailto") ? undefined : "_blank"} 
                   rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"} 
-                  className="text-muted-foreground hover:text-primary transition-all duration-300"
+                  className="text-muted-foreground transition-colors duration-300 hover:text-primary hover:shadow-[0_0_20px_rgba(124,58,237,0.18)]"
                   aria-label={social.label}
                   whileHover={{ scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400 }}
