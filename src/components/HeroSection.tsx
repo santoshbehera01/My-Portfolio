@@ -78,12 +78,9 @@ const HeroSection = () => {
               </motion.h1>
             </div>
 
-            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">B.Tech CSE Student || Aspiring Software Engineer || Programming Enthusiast</motion.p>
+            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">Computer Science Engineering Student | Python Developer | Software Development | AI & Web Development</motion.p>
 
-            <motion.p variants={itemVariants} className="text-muted-foreground max-w-lg leading-relaxed">
-              Passionate about software development and learning new
-              technologies. Building the future, one line of code at a time.
-            </motion.p>
+            
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col gap-6 items-center">
