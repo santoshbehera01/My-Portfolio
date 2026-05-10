@@ -72,14 +72,11 @@ const AboutSection = () => {
             <motion.div variants={itemVariants} className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Hi there! I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>, 
-                a B.Tech CSE student with a strong interest in programming and 
-                software development. I'm learning the basics of computer science 
-                and coding, aiming to become a skilled Software Engineer.
+                a B.Tech Computer Science student focused on building impactful software solutions and exploring modern technologies.
+                I enjoy developing real-world projects in AI and web development, with hands-on experience in applications such as an AI Resume Analyzer and other development-focused projects.
               </p>
-              <p>
-                I enjoy exploring new technologies and always look for ways to 
-                grow and improve. My journey in tech is driven by curiosity and 
-                the desire to create meaningful solutions that make a difference.
+              <p>I actively participate in technical events and project exhibitions to strengthen my technical, analytical, and problem-solving skills.
+                Driven by continuous learning and innovation, I am always eager to explore new technologies, work on meaningful projects, and grow as a future Software Engineer.
               </p>
             </motion.div>
 
