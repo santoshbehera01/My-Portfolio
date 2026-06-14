@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Gamepad2, Users, Shield, Bot } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, Users, Shield, Bot, Wallet } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 const ProjectsSection = () => {
@@ -40,6 +40,15 @@ const ProjectsSection = () => {
       github: "https://github.com/santoshbehera01/AI-Resume-Analyzer",
     },
     {
+      icon: <Wallet className="w-8 h-8" />,
+      title: "Expense Tracker",
+      description:
+        "A Python Tkinter-based Expense Tracker application with CSV/JSON support for managing daily expenses.",
+      tags: ["Python", "Tkinter", "Expense Tracker"],
+      color: "from-green-500 to-primary",
+      github: "https://github.com/santoshbehera01/Expense-Tracker",
+    },
+    {
       icon: <Gamepad2 className="w-8 h-8" />,
       title: "Tic Tac Toe",
       description:
@@ -47,15 +56,6 @@ const ProjectsSection = () => {
       tags: ["Java", "Game Logic", "Interactive"],
       color: "from-primary to-amber-500",
       github: "https://github.com/santoshbehera01/Tictactoe",
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Strongest Password",
-      description:
-        "A password strength checker and generator that evaluates password security and suggests stronger alternatives for better protection.",
-      tags: ["HTML", "Security", "Password Generator"],
-      color: "from-green-500 to-primary",
-      github: "https://github.com/santoshbehera01/First-project",
     },
     {
       icon: <Users className="w-8 h-8" />,
