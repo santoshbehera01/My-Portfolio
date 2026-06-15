@@ -53,7 +53,7 @@ const ExperienceSection = () => {
       icon: <Trophy className="w-6 h-6" />,
       title: "Hackathon Participation",
       description:
-        "Participated in major hackathons including HackFest 2.0, BPUT Hackathon, and Adastra 2025, gaining hands-on experience in problem-solving, teamwork, innovation, and rapid software development.",
+        "Participated in major hackathons including HackFest 2.0, BPUT Hackathon, and Adastra 2025, gaining hands on experience in problem-solving, teamwork, innovation, and rapid software development.",
       year: "2025",
     },
     {
