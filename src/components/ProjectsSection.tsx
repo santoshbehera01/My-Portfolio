@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Gamepad2, Users, Shield, Bot, Wallet } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, Users, Shield, Bot, Wallet, Scale } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 const ProjectsSection = () => {
@@ -58,13 +58,13 @@ const ProjectsSection = () => {
       github: "https://github.com/santoshbehera01/Tictactoe",
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Team Project",
+      icon: <Scale className="w-8 h-8" />,
+      title: "Unit Converter Tool",
       description:
-        "A collaborative project developed with a team, highlighting teamwork, coordination, and practical implementation of software engineering principles.",
-      tags: ["Collaboration", "Team Work", "Software Development"],
+        "A modern desktop application built with Python and Tkinter that performs fast and accurate unit conversions across multiple categories, featuring conversion history, statistics, and CSV export.",
+      tags: ["Python", "Tkinter", "Unit Converter"],
       color: "from-purple-500 to-primary",
-      github: "#",
+      github: "https://github.com/santoshbehera01/Unit-Converter-Tool",
     },
   ];
 
@@ -149,7 +149,9 @@ const ProjectsSection = () => {
                     <Github size={18} />
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                     whileHover={{ scale: 1.2 }}
                     transition={{ type: "spring", stiffness: 400 }}
