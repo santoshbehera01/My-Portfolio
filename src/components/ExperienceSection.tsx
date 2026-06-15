@@ -46,7 +46,7 @@ const ExperienceSection = () => {
       icon: <Trophy className="w-6 h-6" />,
       title: "INNOVISION 2026",
       description:
-        "Participated in innovation focused events and showcased project ideas, gaining valuable exposure to emerging technologies and real-world problem solving.",
+        "Participated in innovation focused events and showcased project ideas, gaining valuable exposure to emerging technologies and real world problem solving.",
       year: "2026",
     },
     {
