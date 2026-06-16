@@ -60,7 +60,7 @@ const ExperienceSection = () => {
       icon: <Users className="w-6 h-6" />,
       title: "Python Programming Internship",
       description:
-        "Developed multiple desktop applications including Expense Tracker, To-Do List Manager, Unit Converter Tool, and Automated File Organizer while applying software development best practices.",
+        "Developed multiple desktop applications including Expense Tracker, To Do List Manager, Unit Converter Tool, and Automated File Organizer while applying software development best practices.",
       year: "2026",
     },
   ];
