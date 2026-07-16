@@ -43,12 +43,6 @@ const SkillsSection = () => {
     { name: "Python", level: 80 },
   ];
 
-  const coreSkills = [
-    "Teamwork",
-    "Time Management",
-    "Problem Solving",
-  ];
-
   const learningFocus = [
     "Software Development",
     "Web Development",
@@ -59,6 +53,7 @@ const SkillsSection = () => {
   const webTechnologies = [
     "HTML",
     "CSS",
+    
   ];
 
   const toolsAndPlatforms = [
@@ -126,39 +121,6 @@ const SkillsSection = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-
-          {/* Core Skills */}
-          <motion.div
-            variants={cardVariants}
-            className="glass-card p-8"
-            whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <h3 className="text-xl font-bold text-foreground mb-6">
-              Core Skills
-            </h3>
-            <motion.div 
-              className="flex flex-wrap gap-2"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
-              }}
-            >
-              {coreSkills.map((skill) => (
-                <motion.span
-                  key={skill}
-                  variants={tagVariants}
-                  whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
-                  className="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium transition-colors cursor-default"
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Learning Focus */}
