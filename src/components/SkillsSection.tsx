@@ -53,7 +53,9 @@ const SkillsSection = () => {
   const webTechnologies = [
     "HTML",
     "CSS",
-    
+    "JavaScript",
+    "TypeScript",
+    "React.js",
   ];
 
   const toolsAndPlatforms = [
