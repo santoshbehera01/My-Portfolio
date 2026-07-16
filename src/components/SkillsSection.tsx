@@ -56,6 +56,25 @@ const SkillsSection = () => {
     "MySQL",
   ];
 
+  const webTechnologies = [
+    "HTML",
+    "CSS",
+  ];
+
+  const toolsAndPlatforms = [
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Vercel",
+    "TiinyHost",
+  ];
+
+  const coreConcepts = [
+    "Data Structures",
+    "OOP",
+    "DBMS",
+  ];
+
   return (
     <section id="skills" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -173,6 +192,105 @@ const SkillsSection = () => {
                 </motion.li>
               ))}
             </motion.ul>
+          </motion.div>
+
+          {/* Web Technologies */}
+          <motion.div
+            variants={cardVariants}
+            className="glass-card p-8"
+            whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <h3 className="text-xl font-bold text-foreground mb-6">
+              Web Technologies
+            </h3>
+            <motion.div 
+              className="flex flex-wrap gap-2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
+              }}
+            >
+              {webTechnologies.map((skill) => (
+                <motion.span
+                  key={skill}
+                  variants={tagVariants}
+                  whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
+                  className="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Tools & Platforms */}
+          <motion.div
+            variants={cardVariants}
+            className="glass-card p-8"
+            whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <h3 className="text-xl font-bold text-foreground mb-6">
+              Tools & Platforms
+            </h3>
+            <motion.div 
+              className="flex flex-wrap gap-2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
+              }}
+            >
+              {toolsAndPlatforms.map((skill) => (
+                <motion.span
+                  key={skill}
+                  variants={tagVariants}
+                  whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
+                  className="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Core Concepts */}
+          <motion.div
+            variants={cardVariants}
+            className="glass-card p-8"
+            whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <h3 className="text-xl font-bold text-foreground mb-6">
+              Core Concepts
+            </h3>
+            <motion.div 
+              className="flex flex-wrap gap-2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
+              }}
+            >
+              {coreConcepts.map((skill) => (
+                <motion.span
+                  key={skill}
+                  variants={tagVariants}
+                  whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
+                  className="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
