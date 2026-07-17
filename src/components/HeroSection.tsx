@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, FileText } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 const HeroSection = () => {
@@ -78,50 +78,51 @@ const HeroSection = () => {
               </motion.h1>
             </div>
 
-            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">Computer Science Engineering Student | Python Developer | Software Development | AI & Web Development</motion.p>
+            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">Computer Science Engineering Student | Python Developer | Campus Mantri @GeeksforGeeks | AI & Web Development | EATM ’28</motion.p>
 
             
 
             {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col gap-6 items-center">
-              <motion.a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-950 via-slate-900 to-violet-700 text-white px-6 py-3 rounded-2xl font-medium border border-white/10 shadow-[0_18px_50px_-35px_rgba(124,58,237,0.7)] hover:from-slate-900 hover:to-violet-600 transition-all"
-                whileHover={{
-                  y: -3,
-                  boxShadow: "0 14px 32px -16px rgba(124,58,237,0.45)"
-                }}
-                whileTap={{
-                  scale: 0.98
-                }}
-              >
-                View Resume 📄
-              </motion.a>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <motion.a href="#projects" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all" whileHover={{
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
+              <motion.a href="#projects" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all" whileHover={{
                 y: -3,
                 boxShadow: "0 10px 20px -10px rgba(0,0,0,0.3)"
               }} whileTap={{
                 scale: 0.98
               }}>
-                  View Projects
-                  <ArrowRight size={18} />
-                </motion.a>
-                <motion.a href="#contact" className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all" whileHover={{
+                View Projects
+                <ArrowRight size={18} />
+              </motion.a>
+
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-primary/40 text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/10 transition-all"
+                whileHover={{
+                  y: -3,
+                  boxShadow: "0 10px 20px -10px rgba(0,0,0,0.2)"
+                }}
+                whileTap={{
+                  scale: 0.98
+                }}
+              >
+                View Resume
+                <FileText size={18} />
+              </motion.a>
+
+              <motion.a href="#contact" className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all" whileHover={{
                 y: -3,
                 boxShadow: "0 10px 20px -10px rgba(0,0,0,0.2)"
               }} whileTap={{
                 scale: 0.98
               }}>
-                  Contact Me
-                </motion.a>
-              </div>
+                Contact Me
+              </motion.a>
             </motion.div>
 
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="flex items-center justify-center gap-6 pt-6">
+            <motion.div variants={itemVariants} className="flex items-center justify-center sm:justify-start gap-6 pt-6">
               {[{
               href: "mailto:santoshkumarbehera049@gmail.com",
               icon: <Mail size={20} />,
@@ -140,7 +141,7 @@ const HeroSection = () => {
                   href={social.href} 
                   target={social.href.startsWith("mailto") ? undefined : "_blank"} 
                   rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"} 
-                  className="text-muted-foreground transition-colors duration-300 hover:text-primary hover:shadow-[0_0_20px_rgba(124,58,237,0.18)]"
+                  className="text-muted-foreground transition-colors duration-300 hover:text-primary"
                   aria-label={social.label}
                   whileHover={{ scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400 }}
@@ -156,8 +157,8 @@ const HeroSection = () => {
           once: false,
           amount: 0.3
         }} variants={imageVariants} className="relative flex justify-center lg:justify-end">
-            {/* Profile Image - Clean Rounded Rectangle */}
-            <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden">
+            {/* Profile Image - Glass-card styled rounded rectangle */}
+            <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden border border-border/60 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.5)] ring-1 ring-primary/10">
               <img 
                 src={profilePhoto} 
                 alt="Santosh Kumar Behera" 
