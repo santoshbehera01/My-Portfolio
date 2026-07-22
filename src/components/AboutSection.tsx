@@ -37,7 +37,7 @@ const AboutSection = () => {
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Problem Solving",
-      description: "Strong foundation in Data Structures, Algorithms, and DBMS — currently applying these skills to AI and web development projects.",
+      description: "Strong foundation in Data Structures, Algorithms, and DBMS currently applying these skills to AI and web development projects.",
     },
     {
       icon: <Users className="w-6 h-6" />,
