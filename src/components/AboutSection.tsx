@@ -32,17 +32,17 @@ const AboutSection = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Programming",
-      description: "Interested in coding and improving programming skills",
+      description: "Proficient in Python, Java, and JavaScript/TypeScript, with hands-on experience building REST APIs using Flask.",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
-      title: "Learning",
-      description: "Exploring new technologies and improving skills step by step",
+      title: "Problem Solving",
+      description: "Strong foundation in Data Structures, Algorithms, and DBMS — currently applying these skills to AI and web development projects.",
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Collaboration",
-      description: "Comfortable working in a team and sharing ideas",
+      title: "Leadership",
+      description: "Campus Mantri at GeeksforGeeks and active member of Bug Smashers Coding Club, organizing coding events and technical workshops.",
     },
   ];
 
@@ -63,20 +63,22 @@ const AboutSection = () => {
                 — About Me
               </motion.p>
               <motion.h2 variants={itemVariants} className="section-title">
-                Passionate about building
+                Engineering solutions with
                 <br />
-                <span className="text-gradient">digital solutions</span>
+                <span className="text-gradient">code and curiosity</span>
               </motion.h2>
             </div>
 
             <motion.div variants={itemVariants} className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Hi there! I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>, 
-                a B.Tech Computer Science Engineering student focused on building impactful software solutions and exploring modern technologies.
-                I enjoy developing real world projects in AI and web development, with hands on experience in applications such as an AI Resume Analyzer and other development focused projects.
+                I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>, 
+                a B.Tech Computer Science Engineering student building practical software solutions in AI and web development. 
+                My work includes an AI Resume Analyzer and other full-stack projects, backed by a solid grounding in Data Structures, Algorithms, and Database Management.
               </p>
-              <p>I actively participate in technical events and project exhibitions to strengthen my technical, analytical, and problem solving skills.
-                Driven by continuous learning and innovation, I am always eager to explore new technologies, work on meaningful projects, and grow as a future Software Engineer.
+              <p>
+                Beyond coursework, I compete in hackathons, present at project exhibitions, and serve as Campus Mantri at GeeksforGeeks — 
+                where I organize coding contests and technical workshops for my peers. I'm currently deepening my skills in AI and full-stack development, 
+                with the goal of contributing to production-grade software as a Software Engineer.
               </p>
             </motion.div>
 
