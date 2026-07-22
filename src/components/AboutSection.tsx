@@ -78,7 +78,7 @@ const AboutSection = () => {
               <p>
                 Beyond coursework, I compete in hackathons, present at project exhibitions, and serve as Campus Mantri at GeeksforGeeks,
                 where I organize coding contests and technical workshops for my peers. I'm currently deepening my skills in AI and full-stack development, 
-                with the goal of contributing to production-grade software as a Software Engineer.
+                with the goal of contributing to production grade software as a Software Engineer.
               </p>
             </motion.div>
 
