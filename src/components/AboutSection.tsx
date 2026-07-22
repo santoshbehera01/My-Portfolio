@@ -32,7 +32,7 @@ const AboutSection = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Programming",
-      description: "Proficient in Python, Java, and JavaScript/TypeScript, with hands-on experience building REST APIs using Flask.",
+      description: "Proficient in Python, Java, and JavaScript/TypeScript, with hands on experience building REST APIs using Flask.",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
