@@ -85,7 +85,7 @@ const ExperienceSection = () => {
     "Participated in hackathons and coding competitions",
     "Presented projects at project exhibitions focused on open innovation",
     "Active member of Bug Smashers (Coding Club)",
-    "Organized and coordinated coding events and a college-level tech fest",
+    "Organized and coordinated coding events and a college level tech fest",
   ];
 
   return (
