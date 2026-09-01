@@ -69,6 +69,7 @@ const SkillsSection = () => {
     "VS Code",
     "Vercel",
     "TiinyHost",
+    "Cloudinary",
   ];
 
   const areasOfInterest = [
