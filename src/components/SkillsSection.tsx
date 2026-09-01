@@ -52,7 +52,8 @@ const SkillsSection = () => {
   ];
 
   const backend = [
-    "Flask",
+    "Firebase",
+    "Cloudflare Workers",
     "REST API",
   ];
 
