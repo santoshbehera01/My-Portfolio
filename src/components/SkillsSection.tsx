@@ -60,7 +60,7 @@ const SkillsSection = () => {
   const database = [
     "SQLite",
     "MySQL",
-    "Supabase",
+    "Firebase Firestore",
   ];
 
   const toolsAndPlatforms = [
