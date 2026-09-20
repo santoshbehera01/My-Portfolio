@@ -54,7 +54,7 @@ const ProjectsSection = () => {
       description:
         "A classic two-player 3×3 game with real-time win and draw detection. Players alternate between X and O in an interactive console-based or GUI experience.",
       tags: ["Java", "Game Logic", "Interactive"],
-      color: "from-primary to-amber-500",
+      color: "from-primary to-fuchsia-500",
       github: "https://github.com/santoshbehera01/Tictactoe",
     },
     {
