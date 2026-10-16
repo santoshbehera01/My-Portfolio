@@ -1,5 +1,12 @@
-import { ExternalLink, Github, Gamepad2, Users, Shield, Bot, Wallet, Scale } from "lucide-react";
+import { ExternalLink, Github, Gamepad2, Wallet, Bot, Building2 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+
+// Drop your project screenshots into src/assets/projects/ and import them here, e.g:
+// import aiResumeImg from "@/assets/projects/ai-resume-analyzer.png";
+// import expenseTrackerImg from "@/assets/projects/expense-tracker.png";
+// import ticTacToeImg from "@/assets/projects/tic-tac-toe.png";
+// import unitConverterImg from "@/assets/projects/unit-converter.png";
+// Then set the `image` field below to the imported variable (e.g. image: aiResumeImg).
 
 const ProjectsSection = () => {
   const containerVariants: Variants = {
@@ -31,40 +38,48 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      icon: <Building2 className="w-8 h-8" />,
+      image: null as string | null, // e.g. hostelSystemImg
+      title: "Hostel Management System",
+      description:
+        "A full hostel management web system with admin & student dashboards, notice board, gallery, anti-ragging cell, emergency contacts, and health facilities info — backed by Firebase.",
+      tags: ["HTML", "CSS", "JavaScript", "Firebase"],
+      color: "from-cyan-500 to-primary",
+      github: "https://github.com/santoshbehera01/Smart-Hostel-Student-System",
+      demo: "https://eatm-hostel-system.vercel.app/",
+    },
+    {
       icon: <Bot className="w-8 h-8" />,
+      image: null as string | null, // e.g. aiResumeImg
       title: "AI Resume Analyzer",
       description:
         "An intelligent tool that analyzes resumes against job descriptions, providing ATS optimization scores and actionable feedback.",
       tags: ["AI", "Resume Analysis", "NLP", "Web App"],
       color: "from-blue-500 to-primary",
       github: "https://github.com/santoshbehera01/AI-Resume-Analyzer",
+      demo: "https://ai-resume-analyzer-sb01.vercel.app/",
     },
     {
       icon: <Wallet className="w-8 h-8" />,
+      image: null as string | null, // e.g. expenseTrackerImg
       title: "Expense Tracker",
       description:
         "A Python Tkinter-based Expense Tracker application with CSV/JSON support for managing daily expenses.",
       tags: ["Python", "Tkinter", "Expense Tracker"],
       color: "from-green-500 to-primary",
       github: "https://github.com/santoshbehera01/Expense-Tracker",
+      demo: "#",
     },
     {
       icon: <Gamepad2 className="w-8 h-8" />,
+      image: null as string | null, // e.g. ticTacToeImg
       title: "Tic Tac Toe",
       description:
         "A classic two-player 3×3 game with real-time win and draw detection. Players alternate between X and O in an interactive console-based or GUI experience.",
       tags: ["Java", "Game Logic", "Interactive"],
       color: "from-primary to-fuchsia-500",
       github: "https://github.com/santoshbehera01/Tictactoe",
-    },
-    {
-      icon: <Scale className="w-8 h-8" />,
-      title: "Unit Converter Tool",
-      description:
-        "A modern desktop application built with Python and Tkinter that performs fast and accurate unit conversions across multiple categories, featuring conversion history, statistics, and CSV export.",
-      tags: ["Python", "Tkinter", "Unit Converter"],
-      color: "from-purple-500 to-primary",
-      github: "https://github.com/santoshbehera01/Unit-Converter-Tool",
+      demo: "#",
     },
   ];
 
@@ -102,17 +117,32 @@ const ProjectsSection = () => {
               whileHover={{ y: -8, boxShadow: "0 25px 50px -15px rgba(0,0,0,0.2)" }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {/* Gradient Header */}
-              <div
-                className={`h-32 bg-gradient-to-r ${project.color} flex items-center justify-center`}
-              >
-                <motion.div 
-                  className="p-4 bg-background/20 backdrop-blur-sm rounded-xl text-foreground"
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  {project.icon}
-                </motion.div>
+              {/* Preview: real screenshot if provided, else gradient + icon fallback */}
+              <div className="h-40 relative overflow-hidden">
+                {project.image ? (
+                  <>
+                    <motion.img
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0" />
+                  </>
+                ) : (
+                  <div
+                    className={`h-full w-full bg-gradient-to-r ${project.color} flex items-center justify-center`}
+                  >
+                    <motion.div
+                      className="p-4 bg-background/20 backdrop-blur-sm rounded-xl text-foreground"
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      {project.icon}
+                    </motion.div>
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -148,16 +178,18 @@ const ProjectsSection = () => {
                   >
                     <Github size={18} />
                   </motion.a>
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <ExternalLink size={18} />
-                  </motion.a>
+                  {project.demo && project.demo !== "#" && (
+                    <motion.a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <ExternalLink size={18} />
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
