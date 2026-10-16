@@ -42,7 +42,7 @@ const ProjectsSection = () => {
       image: null as string | null, // e.g. hostelSystemImg
       title: "Hostel Management System",
       description:
-        "A full hostel management web system with admin & student dashboards, notice board, gallery, anti-ragging cell, emergency contacts, and health facilities info backed by Firebase.",
+        "A full hostel management web system with admin & student dashboards, notice board, gallery, anti ragging cell, emergency contacts, and health facilities info backed by Firebase.",
       tags: ["HTML", "CSS", "JavaScript", "Firebase"],
       color: "from-cyan-500 to-primary",
       github: "https://github.com/santoshbehera01/Smart-Hostel-Student-System",
