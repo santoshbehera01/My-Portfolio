@@ -1,12 +1,10 @@
 import { ExternalLink, Github, Gamepad2, Wallet, Bot, Building2 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-// Drop your project screenshots into src/assets/projects/ and import them here, e.g:
-// import aiResumeImg from "@/assets/projects/ai-resume-analyzer.png";
-// import expenseTrackerImg from "@/assets/projects/expense-tracker.png";
-// import ticTacToeImg from "@/assets/projects/tic-tac-toe.png";
-// import unitConverterImg from "@/assets/projects/unit-converter.png";
-// Then set the `image` field below to the imported variable (e.g. image: aiResumeImg).
+import hostelSystemImg from "@/assets/projects/hostel-management-system.png";
+import aiResumeImg from "@/assets/projects/ai-resume-analyzer.png";
+import expenseTrackerImg from "@/assets/projects/expense-tracker.png";
+import ticTacToeImg from "@/assets/projects/tic-tac-toe.png";
 
 const ProjectsSection = () => {
   const containerVariants: Variants = {
@@ -39,10 +37,10 @@ const ProjectsSection = () => {
   const projects = [
     {
       icon: <Building2 className="w-8 h-8" />,
-      image: null as string | null, // e.g. hostelSystemImg
+      image: hostelSystemImg,
       title: "Hostel Management System",
       description:
-        "A full hostel management web system with admin & student dashboards, notice board, gallery, anti ragging cell, emergency contacts, and health facilities info backed by Firebase.",
+        "A full hostel management web system with admin & student dashboards, notice board, gallery, anti-ragging cell, emergency contacts, and health facilities info — backed by Firebase.",
       tags: ["HTML", "CSS", "JavaScript", "Firebase"],
       color: "from-cyan-500 to-primary",
       github: "https://github.com/santoshbehera01/Smart-Hostel-Student-System",
@@ -50,7 +48,7 @@ const ProjectsSection = () => {
     },
     {
       icon: <Bot className="w-8 h-8" />,
-      image: null as string | null, // e.g. aiResumeImg
+      image: aiResumeImg,
       title: "AI Resume Analyzer",
       description:
         "An intelligent tool that analyzes resumes against job descriptions, providing ATS optimization scores and actionable feedback.",
@@ -61,7 +59,7 @@ const ProjectsSection = () => {
     },
     {
       icon: <Wallet className="w-8 h-8" />,
-      image: null as string | null, // e.g. expenseTrackerImg
+      image: expenseTrackerImg,
       title: "Expense Tracker",
       description:
         "A Python Tkinter-based Expense Tracker application with CSV/JSON support for managing daily expenses.",
@@ -72,10 +70,10 @@ const ProjectsSection = () => {
     },
     {
       icon: <Gamepad2 className="w-8 h-8" />,
-      image: null as string | null, // e.g. ticTacToeImg
+      image: ticTacToeImg,
       title: "Tic Tac Toe",
       description:
-        "A classic two player 3×3 game with real time win and draw detection. Players alternate between X and O in an interactive console based or GUI experience.",
+        "A classic two-player 3×3 game with real-time win and draw detection. Players alternate between X and O in an interactive console-based or GUI experience.",
       tags: ["Java", "Game Logic", "Interactive"],
       color: "from-primary to-fuchsia-500",
       github: "https://github.com/santoshbehera01/Tictactoe",
