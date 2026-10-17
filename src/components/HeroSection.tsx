@@ -157,13 +157,15 @@ const HeroSection = () => {
           once: false,
           amount: 0.3
         }} variants={imageVariants} className="relative flex justify-center lg:justify-end">
-            {/* Profile Image - Glass-card styled rounded rectangle */}
-            <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] overflow-hidden border border-border/60 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.5)] ring-1 ring-primary/10">
-              <img 
-                src={profilePhoto} 
-                alt="Santosh Kumar Behera" 
-                className="w-full h-full object-cover object-[center_35%]" 
-              />
+            {/* Profile Image - same size/shape, now with a gradient glow border */}
+            <div className="relative w-64 h-80 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-[2rem] p-[3px] bg-gradient-to-br from-primary via-accent to-fuchsia-400 shadow-[0_0_70px_-12px_hsl(var(--primary)/0.65)]">
+              <div className="w-full h-full rounded-[1.85rem] overflow-hidden bg-background">
+                <img 
+                  src={profilePhoto} 
+                  alt="Santosh Kumar Behera" 
+                  className="w-full h-full object-cover object-[center_35%]" 
+                />
+              </div>
             </div>
           </motion.div>
         </div>
