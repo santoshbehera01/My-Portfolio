@@ -89,7 +89,7 @@ const SkillsSection = () => {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          <motion.p variants={headerVariants} className="section-subtitle">— Skills</motion.p>
+          <motion.p variants={headerVariants} className="section-subtitle">Skills</motion.p>
           <motion.h2 variants={headerVariants} className="section-title">What I Bring to the Table</motion.h2>
         </motion.div>
 
