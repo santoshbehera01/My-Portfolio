@@ -102,7 +102,7 @@ const ExperienceSection = () => {
             variants={headerVariants}
             className="section-subtitle"
           >
-            — Experience & Achievements
+            Experience & Achievements
           </motion.p>
 
           <motion.h2
