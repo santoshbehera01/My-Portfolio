@@ -60,7 +60,7 @@ const AboutSection = () => {
           >
             <div>
               <motion.p variants={itemVariants} className="section-subtitle">
-                — About Me
+                About Me
               </motion.p>
               <motion.h2 variants={itemVariants} className="section-title">
                 Engineering solutions with
