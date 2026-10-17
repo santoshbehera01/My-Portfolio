@@ -68,7 +68,7 @@ const HeroSection = () => {
           amount: 0.3
         }} variants={containerVariants} className="space-y-8 text-center sm:text-left">
             <div className="space-y-4">
-              <motion.p variants={itemVariants} className="section-subtitle">— Introduction</motion.p>
+              <motion.p variants={itemVariants} className="section-subtitle">Introduction</motion.p>
               <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold leading-tight">
                 Santosh
                 <br />
@@ -125,15 +125,15 @@ const HeroSection = () => {
             <motion.div variants={itemVariants} className="flex items-center justify-center sm:justify-start gap-6 pt-6">
               {[{
               href: "mailto:santoshkumarbehera049@gmail.com",
-              icon: <Mail size={20} />,
+              icon: <Mail size={18} />,
               label: "Email"
             }, {
               href: "https://github.com/santoshbehera01",
-              icon: <Github size={20} />,
+              icon: <Github size={18} />,
               label: "GitHub"
             }, {
               href: "https://www.linkedin.com/in/santosh-kumar-behera-/",
-              icon: <Linkedin size={20} />,
+              icon: <Linkedin size={18} />,
               label: "LinkedIn"
             }].map((social, index) => (
                 <motion.a 
@@ -141,9 +141,9 @@ const HeroSection = () => {
                   href={social.href} 
                   target={social.href.startsWith("mailto") ? undefined : "_blank"} 
                   rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"} 
-                  className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-card/60 border border-border/60 text-muted-foreground transition-colors duration-300 hover:text-primary hover:border-primary/50"
                   aria-label={social.label}
-                  whileHover={{ scale: 1.2 }}
+                  whileHover={{ scale: 1.1, boxShadow: "0 0 20px -4px hsl(var(--primary) / 0.5)" }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   {social.icon}
