@@ -3,57 +3,67 @@ import { motion, type Variants } from "framer-motion";
 
 type Skill = {
   name: string;
-  icon: string;
-  color: string;
-  label?: string;
+  logo?: string;
+  invert?: boolean;
+  color?: string;
+  customLogo?: boolean;
 };
 
-const languages: Skill[] = [
-  { name: "Python", icon: "python", color: "#3776AB" },
-  { name: "Java", icon: "openjdk", color: "#ED8B00", label: "Java" },
-  { name: "C", icon: "c", color: "#A8B9CC" },
-  { name: "JavaScript", icon: "javascript", color: "#F7DF1E" },
-  { name: "TypeScript", icon: "typescript", color: "#3178C6" },
-];
+const devicon = (name: string) =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-original.svg`;
 
-const frontend: Skill[] = [
-  { name: "HTML", icon: "html5", color: "#E34F26" },
-  { name: "CSS", icon: "css", color: "#663399" },
-  { name: "React.js", icon: "react", color: "#61DAFB" },
-];
-
-const backend: Skill[] = [
-  { name: "Firebase", icon: "firebase", color: "#DD2C00" },
+const skills: { title: string; items: Skill[] }[] = [
   {
-    name: "Cloudflare Workers",
-    icon: "cloudflare",
-    color: "#F38020",
+    title: "Programming Languages",
+    items: [
+      { name: "Python", logo: devicon("python") },
+      { name: "Java", logo: devicon("java") },
+      { name: "C", logo: devicon("c") },
+      { name: "JavaScript", logo: devicon("javascript") },
+      { name: "TypeScript", logo: devicon("typescript") },
+    ],
   },
   {
-    name: "REST API",
-    icon: "fastapi",
-    color: "#009688",
-    label: "API",
+    title: "Frontend Development",
+    items: [
+      { name: "HTML", logo: devicon("html5") },
+      { name: "CSS", logo: devicon("css3") },
+      { name: "React.js", logo: devicon("react") },
+    ],
   },
-];
-
-const database: Skill[] = [
-  { name: "SQLite", icon: "sqlite", color: "#003B57" },
-  { name: "MySQL", icon: "mysql", color: "#4479A1" },
   {
-    name: "Firebase Firestore",
-    icon: "firebase",
-    color: "#FFCA28",
+    title: "Backend & APIs",
+    items: [
+      { name: "Firebase", logo: devicon("firebase") },
+      { name: "Cloudflare Workers", logo: devicon("cloudflare") },
+      { name: "REST API", customLogo: true, color: "#8B5CF6" },
+    ],
   },
-];
-
-const toolsAndPlatforms: Skill[] = [
-  { name: "Git", icon: "git", color: "#F05032" },
-  { name: "GitHub", icon: "github", color: "#F0F6FC" },
-  { name: "VS Code", icon: "visualstudiocode", color: "#007ACC" },
-  { name: "Vercel", icon: "vercel", color: "#F0F6FC" },
-  { name: "TiinyHost", icon: "googlechrome", color: "#4285F4", label: "TH" },
-  { name: "Cloudinary", icon: "cloudinary", color: "#3448C5" },
+  {
+    title: "Databases",
+    items: [
+      { name: "SQLite", logo: devicon("sqlite") },
+      { name: "MySQL", logo: devicon("mysql") },
+      { name: "Firebase Firestore", logo: devicon("firebase") },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    items: [
+      { name: "Git", logo: devicon("git") },
+      { name: "GitHub", logo: devicon("github"), invert: true },
+      { name: "VS Code", logo: devicon("vscode") },
+      { name: "Vercel", logo: devicon("vercel"), invert: true },
+      {
+        name: "TiinyHost",
+        logo: "https://tiiny.host/assets/logo.png",
+      },
+      {
+        name: "Cloudinary",
+        logo: "https://cdn.simpleicons.org/cloudinary/3448C5",
+      },
+    ],
+  },
 ];
 
 const areasOfInterest = [
@@ -71,148 +81,195 @@ const containerVariants: Variants = {
   },
 };
 
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: "easeOut" },
+    transition: {
+      duration: 0.45,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   },
 };
 
-const iconUrl = (icon: string) =>
-  `https://cdn.simpleicons.org/${icon}`;
+const skillVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.3 },
+  },
+};
 
-const SkillCard = ({ skill }: { skill: Skill }) => (
-  <motion.div
-    whileHover={{ y: -4 }}
-    transition={{ duration: 0.2 }}
-    className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-xl border border-border/70 bg-background/60 p-4 text-center transition-colors duration-300 hover:border-primary/50 hover:bg-primary/[0.04]"
-  >
-    <div className="flex h-9 w-9 items-center justify-center">
-      <img
-        src={iconUrl(skill.icon)}
-        alt=""
+const SkillLogo = ({ skill }: { skill: Skill }) => {
+  if (skill.customLogo) {
+    return (
+      <svg
+        viewBox="0 0 48 48"
+        className="h-9 w-9"
+        fill="none"
         aria-hidden="true"
-        loading="lazy"
-        onError={(event) => {
-          event.currentTarget.style.display = "none";
-          const fallback = event.currentTarget
-            .nextElementSibling as HTMLElement | null;
-          if (fallback) fallback.style.display = "flex";
-        }}
-        className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-110"
-        style={{
-          filter:
-            skill.color === "#F0F6FC" ||
-            skill.color === "#A8B9CC"
-              ? "none"
-              : undefined,
-        }}
-      />
-      <span
-        style={{
-          display: "none",
-          color: skill.color,
-        }}
-        className="h-8 w-8 items-center justify-center rounded-lg border border-current/20 text-xs font-bold"
       >
-        {skill.label ?? skill.name.slice(0, 2).toUpperCase()}
-      </span>
-    </div>
+        <rect
+          x="4"
+          y="4"
+          width="40"
+          height="40"
+          rx="12"
+          fill={skill.color}
+          fillOpacity="0.14"
+        />
+        <path
+          d="M15 16h18M15 24h12M15 32h18"
+          stroke={skill.color}
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <circle cx="32" cy="24" r="3" fill={skill.color} />
+      </svg>
+    );
+  }
 
-    <span className="text-sm font-medium text-foreground/90 transition-colors group-hover:text-primary">
-      {skill.name}
-    </span>
-  </motion.div>
-);
-
-const SkillCategory = ({
-  title,
-  skills,
-}: {
-  title: string;
-  skills: Skill[];
-}) => (
-  <motion.div
-    variants={cardVariants}
-    className="glass-card p-5 sm:p-6"
-  >
-    <h3 className="mb-5 text-lg font-bold text-foreground">
-      {title}
-    </h3>
-
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      {skills.map((skill) => (
-        <SkillCard key={skill.name} skill={skill} />
-      ))}
-    </div>
-  </motion.div>
-);
+  return (
+    <img
+      src={skill.logo}
+      alt=""
+      loading="lazy"
+      className={`h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-110 ${
+        skill.invert ? "brightness-0 invert" : ""
+      }`}
+    />
+  );
+};
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="bg-secondary/30 py-20 md:py-32">
-      <div className="container mx-auto px-6">
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-secondary/30 py-20 md:py-32"
+    >
+      {/* Subtle purple ambient glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-28 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-600/5 blur-3xl"
+      />
+
+      <div className="container relative mx-auto px-5 sm:px-6">
+        {/* Section heading */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="mb-12 text-center md:mb-16"
+          className="mb-14 text-center md:mb-16"
         >
           <motion.p
-            variants={cardVariants}
+            variants={headerVariants}
             className="section-subtitle"
           >
             Skills
           </motion.p>
 
           <motion.h2
-            variants={cardVariants}
+            variants={headerVariants}
             className="section-title"
           >
-            Skills & Technologies
+            Skills &amp; Technologies
           </motion.h2>
 
           <motion.p
-            variants={cardVariants}
-            className="mx-auto mt-4 max-w-2xl text-muted-foreground"
+            variants={headerVariants}
+            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
           >
-            Technologies I use to build modern software solutions.
+            Technologies I use to build modern, reliable, and impactful
+            software solutions.
           </motion.p>
+
+          <motion.div
+            variants={headerVariants}
+            className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-violet-500 to-blue-500"
+          />
         </motion.div>
 
+        {/* Technology cards */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.08 }}
           variants={containerVariants}
-          className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-3"
+          className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          <SkillCategory title="Programming Languages" skills={languages} />
-          <SkillCategory title="Frontend Development" skills={frontend} />
-          <SkillCategory title="Backend & APIs" skills={backend} />
-          <SkillCategory title="Databases" skills={database} />
-          <SkillCategory title="Tools & Platforms" skills={toolsAndPlatforms} />
+          {skills.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={cardVariants}
+              whileHover={{
+                y: -4,
+                transition: { duration: 0.2 },
+              }}
+              className="rounded-2xl border border-border/70 bg-card/70 p-5 shadow-sm backdrop-blur-sm transition-colors duration-300 hover:border-violet-500/40 sm:p-6"
+            >
+              <h3 className="mb-5 text-lg font-semibold tracking-tight text-foreground">
+                {category.title}
+              </h3>
 
+              <motion.div
+                variants={containerVariants}
+                className="grid grid-cols-2 gap-3 sm:grid-cols-3"
+              >
+                {category.items.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    variants={skillVariants}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-xl border border-border/60 bg-background/70 px-2 py-4 text-center transition-all duration-300 hover:border-violet-500/40 hover:bg-violet-500/[0.06] hover:shadow-[0_8px_24px_-16px_rgba(139,92,246,0.5)]"
+                  >
+                    <SkillLogo skill={skill} />
+
+                    <span className="text-xs font-medium leading-5 text-muted-foreground transition-colors duration-300 group-hover:text-foreground sm:text-sm">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
+
+          {/* Areas of interest */}
           <motion.div
             variants={cardVariants}
-            className="glass-card p-5 sm:p-6"
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.2 },
+            }}
+            className="rounded-2xl border border-border/70 bg-card/70 p-5 shadow-sm backdrop-blur-sm transition-colors duration-300 hover:border-violet-500/40 sm:p-6"
           >
-            <h3 className="mb-5 text-lg font-bold text-foreground">
+            <h3 className="mb-6 text-lg font-semibold tracking-tight text-foreground">
               Areas of Interest
             </h3>
 
-            <ul className="space-y-4">
-              {areasOfInterest.map((item) => (
+            <ul className="space-y-5">
+              {areasOfInterest.map((interest) => (
                 <motion.li
-                  key={item}
-                  variants={cardVariants}
-                  className="flex items-center gap-3 text-sm text-muted-foreground"
+                  key={interest}
+                  variants={skillVariants}
+                  className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground sm:text-base"
                 >
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  {item}
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.4)] transition-transform duration-300 group-hover:scale-125" />
+                  {interest}
                 </motion.li>
               ))}
             </ul>
