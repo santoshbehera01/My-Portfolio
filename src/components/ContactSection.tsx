@@ -157,7 +157,7 @@ const ContactSection = () => {
         once: false,
         amount: 0.3
       }} variants={containerVariants} className="text-center mb-16">
-          <motion.p variants={headerVariants} className="section-subtitle">— Contact</motion.p>
+          <motion.p variants={headerVariants} className="section-subtitle">Contact</motion.p>
           <motion.h2 variants={headerVariants} className="section-title">Get In Touch</motion.h2>
           <motion.p variants={headerVariants} className="text-muted-foreground max-w-2xl mx-auto mt-4">
             Have a question or want to connect? Feel free to reach out. I'm
