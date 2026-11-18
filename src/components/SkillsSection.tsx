@@ -69,7 +69,7 @@ const skills: { title: string; items: Skill[] }[] = [
 const areasOfInterest = [
   "Artificial Intelligence",
   "Web Development",
-  "Machine Learning",
+  "Software Development",
   "Full Stack Development",
 ];
 
