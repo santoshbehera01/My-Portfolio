@@ -83,11 +83,13 @@ const ExperienceSection = () => {
     "Completed the TestMu AI Bootcamp (in collaboration with GeeksforGeeks) on browser automation and AI agent infrastructure",
   ];
 
-  const activities = [
-    "Participated in hackathons and coding competitions",
-    "Presented projects at project exhibitions focused on open innovation",
-    "Active member of Bug Smashers (Coding Club)",
-    "Organized and coordinated coding events and a college level tech fest",
+  
+const activities = [
+  "Active member of Bug Smashers (Coding Club), contributing to technical activities and student engagement",
+  "Organized and coordinated coding competitions, technical workshops, and college level tech fests",
+  "Participated in hackathons and coding competitions, demonstrating teamwork and problem solving",
+  "Presented projects at technical exhibitions focused on innovation and practical solutions",
+  "Volunteered at ICSTSEIM-2026, an International Conference on Smart Technologies and Sustainable Engineering",
   ];
 
   return (
