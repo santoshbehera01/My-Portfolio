@@ -62,6 +62,14 @@ const skills: { title: string; items: Skill[] }[] = [
         name: "Cloudinary",
         logo: "https://cdn.simpleicons.org/cloudinary/3448C5",
       },
+      {
+        name: "Mission Planner",
+    logo: "https://raw.githubusercontent.com/ArduPilot/MissionPlanner/master/Resources/missionplannerlogo.png",
+  },
+  {
+    name: "ArduPilot",
+    logo: "https://firmware.ardupilot.org/Tools/Logos/ArduPilot-Cleaned-Transparent.png",
+      }
     ],
   },
 ];
