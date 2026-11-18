@@ -1,3 +1,4 @@
+
 import { Code, Lightbulb, Users } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
@@ -32,12 +33,12 @@ const AboutSection = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Programming",
-      description: "Proficient in Python, Java, and JavaScript/TypeScript, with hands on experience building REST APIs using Flask.",
+      description: "Proficient in Python, Java, C, and JavaScript/TypeScript, with hands-on experience in software development and building REST APIs using Flask.",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Problem Solving",
-      description: "Strong foundation in Data Structures, Algorithms, and DBMS currently applying these skills to AI and web development projects.",
+      description: "Strong foundation in Data Structures, OOP, and DBMS, applying these concepts to AI, web development, and practical software projects.",
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -71,14 +72,30 @@ const AboutSection = () => {
 
             <motion.div variants={itemVariants} className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>, 
-                a B.Tech Computer Science Engineering student building practical software solutions in AI and web development. 
-                My work includes an AI Resume Analyzer and other full-stack projects, backed by a solid grounding in Data Structures, Algorithms, and Database Management.
+                I'm <span className="text-foreground font-medium">Santosh Kumar Behera</span>,
+                a B.Tech Computer Science Engineering student passionate about building practical software solutions in AI, web development, and robotics. My projects include an
+                <span className="text-foreground font-medium"> AI Resume Analyzer</span>,
+                <span className="text-foreground font-medium"> Smart Hostel Management System</span>,
+                and ArduPilot Mission Planner parameter configuration.
               </p>
               <p>
-                Beyond coursework, I compete in hackathons, present at project exhibitions, and serve as Campus Mantri at GeeksforGeeks,
-                where I organize coding contests and technical workshops for my peers. I'm currently deepening my skills in AI and full-stack development, 
-                with the goal of contributing to production grade software as a Software Engineer.
+                With proficiency in Python, Java, C, JavaScript, and modern web technologies,
+                I focus on developing practical solutions while strengthening my foundation
+                in Data Structures, OOP, and DBMS.
+              </p>
+              <p>
+                Beyond academics, I'm a
+                <span className="text-foreground font-medium"> 1st Runner-up at BPUT Hackathon 2026 (PS-05)</span>
+                and serve as a
+                <span className="text-foreground font-medium"> Campus Mantri at GeeksforGeeks</span>,
+                organizing coding contests and technical workshops. I have also presented research
+                at <span className="text-foreground font-medium">INNOVATE 360°</span>,
+                with my paper featured in the official symposium proceedings.
+              </p>
+              <p>
+                I'm continuously exploring opportunities in
+                <span className="text-foreground font-medium"> Software Development, AI, Drone Systems, and Embedded Technologies</span>,
+                with a focus on learning, innovation, and building impactful solutions.
               </p>
             </motion.div>
 
