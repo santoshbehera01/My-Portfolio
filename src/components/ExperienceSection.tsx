@@ -75,7 +75,9 @@ const ExperienceSection = () => {
   ];
 
   const certifications = [
-    "Participated in hackathons including GIET HackFest 2.0, BPUT Hackathon, and Adastra 2025",
+    "1st Runner-up at BPUT Hackathon 2026 (Problem Statement-05).",
+    "Presented research at INNOVATE 360° (National Student Symposium 2026); paper featured in official proceedings.",
+    "Participated in hackathons including GIET HackFest 2.0, BPUT Hackathon 2025 & 2026, and Adastra 2025",
     "Presented projects at INNOVISION 2026 and BPUT Project Exhibition 2025",
     "Completed a Bootcamp on Big Data & Data Science, CDAC Noida",
     "Completed the TestMu AI Bootcamp (in collaboration with GeeksforGeeks) on browser automation and AI agent infrastructure",
