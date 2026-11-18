@@ -71,6 +71,8 @@ const areasOfInterest = [
   "Web Development",
   "Software Development",
   "Full Stack Development",
+  "Robotics & Drone Systems",
+  "Embedded Technologies",
 ];
 
 const containerVariants: Variants = {
