@@ -78,7 +78,7 @@ const HeroSection = () => {
               </motion.h1>
             </div>
 
-            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">Computer Science Engineering Student | Python Developer | 1st Runner-up at BPUT Hackathon 2026 | Campus Mantri at GeeksforGeeks | AI, Web Development & Drone Systems | EATM '28</motion.p>
+            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-md">CSE Student | 1st Runner-up at BPUT Hackathon 2026 | Campus Mantri at GeeksforGeeks | AI, Web Development | Drone Systems and Embedded Technologies | EATM '28</motion.p>
 
             
 
